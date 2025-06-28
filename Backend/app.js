@@ -9,16 +9,17 @@ require("dotenv").config();
 require('./conn/conn');
 
 
+
     app.use(cors({
         origin: [process.env.FRONTEND_URL],
         credentials: true,
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["Content-Type", "Authorization"],
         cookie: {
-            maxage: 7*24*60*60*1000, 
+            maxAge: 7*24*60*60*1000, 
             httpOnly: true,
             sameSite: 'none',
-            secure: process.env.NODE_ENV === "production",
+            secure: true,
         }
     }))
 

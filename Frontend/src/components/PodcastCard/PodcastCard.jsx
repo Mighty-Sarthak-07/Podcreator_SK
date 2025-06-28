@@ -7,7 +7,7 @@ const PodcastCard = ({ items }) => {
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const BASE_URL = "http://localhost:1000";
+  const BASE_URL = `${import.meta.env.VITE_BACKEND_URL}`;
 
   const handlePlay = (e) => {
     if (!isLoggedIn) {

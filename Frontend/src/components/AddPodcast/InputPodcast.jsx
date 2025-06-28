@@ -20,7 +20,7 @@ const InputPodcast = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:1000/api/v1/get-categories");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}api/v1/get-categories`);
       setCategories(res.data.data || []);
     } catch (error) {
       console.error("Failed to fetch categories", error);

@@ -16,7 +16,7 @@ const CategoriesPage = () => {
         setError(null);
 
         const response = await axios.post(
-          `http://localhost:1000/api/v1/category/${cat}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/category/${cat}`
         );
 
         // Check if data is received

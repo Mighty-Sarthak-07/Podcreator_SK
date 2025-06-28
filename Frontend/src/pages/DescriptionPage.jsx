@@ -10,7 +10,7 @@ const DescriptionPage = () => {
       const fetchPodcasts = async () => {
         try {
           const res = await axios.post(
-            `http://localhost:1000/api/v1/get-podcast/${id}`,{},
+            `${import.meta.env.VITE_BACKEND_URL}/api/v1/get-podcast/${id}`,{},
             { withCredentials: true }
           );
           setPodcasts(res.data.data);

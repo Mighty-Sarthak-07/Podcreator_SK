@@ -18,20 +18,19 @@ import DescriptionPage from "./pages/DescriptionPage.jsx";
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    const fetch = async ()=>{
-    try{
-      const res = await axios.get("http://localhost:1000/api/v1/check-cookie",{withCredentials:true});
-      console.log(res.data.message);
-    if(res.data.message == true){
-      dispatch(authActions.login());
-    }
-  }
-  catch(error){
-    console.log(error);
-  };
+    const fetch = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/check-cookie`, { withCredentials: true });
+        console.log(res.data.message);
+        if (res.data.message == true) {
+          dispatch(authActions.login());
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetch();
-}
-  }, [dispatch]);
+  }, []); // Don't forget to close the useEffect dependency array
 
   
   return (

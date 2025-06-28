@@ -5,7 +5,6 @@ const CatApi = require("./routes/categories");
 const PodcastApi = require("./routes/podcast");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const { getMaxListeners } = require("./models/user");
 require("dotenv").config();
 require('./conn/conn');
 

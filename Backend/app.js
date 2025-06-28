@@ -4,16 +4,25 @@ const userApi = require("./routes/user");
 const CatApi = require("./routes/categories");
 const PodcastApi = require("./routes/podcast");
 const cookieParser = require("cookie-parser");
-const cors = require("cors")
+const cors = require("cors");
+const { getMaxListeners } = require("./models/user");
 require("dotenv").config();
 require('./conn/conn');
 
-app.use(cors(
-    {
-        origin:[process.env.FRONTEND_URL],
-        credentials:true,
-    }
-));
+
+    app.use(cors({
+        origin: [process.env.FRONTEND_URL],
+        credentials: true,
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        cookie: {
+            maxage: 7*24*60*60*1000, 
+            httpOnly: true,
+            sameSite: 'none',
+            secure: process.env.NODE_ENV === "production",
+        }
+    }))
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static("uploads"));

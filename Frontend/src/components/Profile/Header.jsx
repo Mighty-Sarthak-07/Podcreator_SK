@@ -9,13 +9,13 @@ const Header = () => {
     const dispatch = useDispatch();
     useEffect(() => {
       const fetchUserDetails = async ()=>{
-         const res = await axios.get("http://localhost:1000/api/v1/user-details",{withCredentials:true,});
+         const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/v1/user-details`,{withCredentials:true,});
          setUserData(res.data.user);
       };
       fetchUserDetails();
     }, [])
     const LogoutHandler = async () =>{
-        const res = await axios.post("http://localhost:1000/api/v1/logout",{withCredentials:true,});
+        const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/v1/logout`,{withCredentials:true,});
         console.log(res);
         dispatch(authActions.logout());
         navigate("/");

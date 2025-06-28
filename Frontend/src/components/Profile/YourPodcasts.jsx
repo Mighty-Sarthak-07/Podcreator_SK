@@ -10,7 +10,7 @@ const YourPodcasts = () => {
     const fetchPodcasts = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:1000/api/v1/get-user-podcasts",{},
+          `${import.meta.env.VITE_BACKEND_URL}/api/v1/get-user-podcasts`,{},
           { withCredentials: true }
         );
         setPodcasts(res.data.data);

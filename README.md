@@ -30,6 +30,7 @@
 
 ### 📁 Folder Structure
 Podcreator_SK/
+
 │
 ├── client/ # React Frontend
 │ ├── public/ # Static files

@@ -29,4 +29,24 @@
 ---
 
 ### 📁 Folder Structure
-
+Podcreator_SK/
+│
+├── client/ # React Frontend
+│ ├── public/ # Static files
+│ ├── src/
+│ │ ├── components/ # UI Components
+│ │ ├── pages/ # Route Pages (Home, Upload, Login, etc.)
+│ │ ├── services/ # API Service Calls
+│ │ └── App.js
+│
+├── server/ # Express Backend
+│ ├── routes/ # API Routes
+│ ├── controllers/ # Route Handlers / Logic
+│ ├── models/ # MongoDB Schemas
+│ ├── middleware/ # Authentication, Error Handling
+│ └── server.js # Server Entry Point
+│
+├── uploads/ # Uploaded Audio Files
+├── .env # Environment Variables
+├── package.json # Backend Project Config
+└── README.md # Project Documentation
